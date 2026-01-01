@@ -1,24 +1,34 @@
+```markdown
 # Deploying a Node Js Application on AWS EC2
 
 ### Testing the project locally
 
 1. Clone this project
+
 ```
-git clone https://github.com/verma-kunal/AWS-Session.git
+
+git clone [https://github.com/Muhammad-Zubair796/stripe-aws-project.git](https://github.com/Muhammad-Zubair796/stripe-aws-project.git)
+
 ```
 2. Setup the following environment variables - `(.env)` file
+
 ```
-DOMAIN= ""
+
+DOMAIN= "http://localhost:3000"
 PORT=3000
 STATIC_DIR="./client"
 
 PUBLISHABLE_KEY=""
 SECRET_KEY=""
+
 ```
 3. Initialise and start the project
+
 ```
+
 npm install
 npm run start
+
 ```
 
 ### Set up an AWS EC2 instance
@@ -31,15 +41,21 @@ npm run start
     - Create a new key pair & download `.pem` file
     - Instance type - t2.micro
 3. Connecting to the instance using ssh
+
 ```
-ssh -i instance.pem ubunutu@<IP_ADDRESS>
+
+ssh -i Nodejs.pem ubuntu@13.53.177.149
+
 ```
 
 ### Configuring Ubuntu on remote VM
 
 1. Updating the outdated packages and dependencies
+
 ```
+
 sudo apt update
+
 ```
 3. Install Git - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-22-04) 
 4. Configure Node.js and `npm` - [Guide by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)
@@ -47,26 +63,40 @@ sudo apt update
 ### Deploying the project on AWS
 
 1. Clone this project in the remote VM
+
 ```
-git clone https://github.com/verma-kunal/AWS-Session.git
+
+git clone [https://github.com/Muhammad-Zubair796/stripe-aws-project.git](https://github.com/Muhammad-Zubair796/stripe-aws-project.git)
+
 ```
 2. Setup the following environment variables - `(.env)` file
+
 ```
-DOMAIN= ""
+
+DOMAIN= "[http://13.53.177.149:3000](http://13.53.177.149:3000)"
 PORT=3000
 STATIC_DIR="./client"
 
 PUBLISHABLE_KEY=""
 SECRET_KEY=""
+
 ```
 > For this project, we'll have to set up an [Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) for our EC2 & that would be our `DOMAIN`
 
 3. Initialise and start the project
+
 ```
+
 npm install
 npm run start
+
 ```
 
-> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port
+> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port (Port 3000)
 
 ### Project is deployed on AWS 🎉
+
+```
+
+---
+
